@@ -1,0 +1,20 @@
+NO          ./texture/brick_wall.XPM
+R 1500 1500
+
+
+WE             ./texture/weave.XPM
+EA          ./texture/triangle.XPM
+SO ./texture/stone_wall.XPM
+
+S ./texture/alban3.XPM
+T ./texture/piege.XPM
+
+
+
+C 244,255,80
+F 80,240,240
+11111111
+1E230011
+10002001
+11030021
+11111111
