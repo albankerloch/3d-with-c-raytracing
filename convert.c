@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 18:09:49 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/24 20:22:07 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/24 20:24:56 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ int		ft_convert_color(char *line)
 	t3 = ft_atoi(line);
 	ft_fill_s(t1, t2, t3, s);
 	if (t1 > 255 || t1 < 0 || t2 > 255 || t2 < 0 || t3 > 255 || t3 < 0)
-        return (-1);
+		return (-1);
 	return (ft_atoi_base(s, "0123456789abcdef"));
 }

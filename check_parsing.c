@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 23:34:52 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/24 20:22:49 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/24 20:25:22 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		ft_verif_floor(char *line, t_data *d)
 			return (-1);
 		d->color_roof = ft_convert_color(line);
 		if (d->color_roof == -1)
-            return (-1);
+			return (-1);
 		d->check[3] = 1;
 		return (0);
 	}
@@ -104,7 +104,7 @@ int		ft_verif_res(char *line, t_data *d)
 		if (d->check[2] == 1)
 			return (-1);
 		if ((d->color_floor = ft_convert_color(line)) == -1)
-            return (-1);
+			return (-1);
 		d->check[2] = 1;
 		return (0);
 	}
