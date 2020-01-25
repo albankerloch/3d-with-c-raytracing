@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:00:52 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 14:57:59 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 13:58:06 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct	s_data
 	void		**imaget;
 	int			**strt;
 	void		*fond;
-	char		*fut;
 	int			l;
 	int			h;
 	int			l2;

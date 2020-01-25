@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 18:44:56 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 14:17:10 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 14:58:49 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,18 +103,17 @@ char	*ft_add_nl(t_data *d, int fd)
 int		ft_parsing(t_data *d, char *name)
 {
 	int		fd;
-	char	*futur_tab;
 
 	fd = open(name, O_RDONLY);
 	if (fd < 1 || ft_strcmp(&name[ft_strlen(name) - 4], ".cub") != 0)
 		return (-1);
 	d->h_tab = 0;
-	if (!(futur_tab = ft_add_nl(d, fd)))
+	if (!(d->fut = ft_add_nl(d, fd)))
 		return (-1);
 	close(fd);
-	if (!(d->tab = ft_create_tab(futur_tab, d)))
+	if (!(d->tab = ft_create_tab(d->fut, d)))
 		return (-1);
-	free(futur_tab);
+	free(d->fut);
 	if (ft_verif_tab(d) == -1)
 		return (-1);
 	return (0);
