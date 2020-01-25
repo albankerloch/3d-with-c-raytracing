@@ -33,7 +33,7 @@ void	ft_rendu(t_coordinate *c, t_data *d)
 		if (i > 0)
 			d->strp[i] = d->strt[c->exp][j];
 		k = k + ratio;
-		j = c->t + (int)floor(k) * d->l2;
+		j = c->t + floor(k) * d->l2;
 		i = i + d->l;
 	}
 }
@@ -60,7 +60,7 @@ void	ft_rendu_texture(t_coordinate *c, t_data *d)
 		if (i > 0)
 			d->strp[i] = d->strt[c->sprite][j];
 		k = k + ratio;
-		j = c->t_2 + (int)floor(k) * d->l2;
+		j = c->t_2 + floor(k) * d->l2;
 		i = i + d->l;
 	}
 }

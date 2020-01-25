@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:02:08 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 18:34:01 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 19:27:35 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_fill_life(t_data *d)
 	int j;
 	int i;
 
-	i = (int)floor(d->l / 64);
-	while (i < d->l / 32)
+	i = (int)floor(d->l / 32);
+	while (i < d->l / 16)
 	{
 		j = (int)floor(d->h / 64) + d->l * i;
 		while (j < d->l * i + (int)floor(d->h / 16))
@@ -26,7 +26,7 @@ void	ft_fill_life(t_data *d)
 			d->strp[j] = 0;
 			j++;
 		}
-		if (i > (int)floor(d->l / 64) + 2 && i < d->l / 32 - 2)
+		if (i > (int)floor(d->l / 32) + 2 && i < d->l / 16 - 2)
 		{
 			j = 2 + (int)floor(d->h / 64) + d->l * i;
 			while (j < d->l * i + (int)floor(d->h / 16) - 2)
@@ -44,11 +44,12 @@ int		ft_update(t_data *d, int option)
 {
 	t_coordinate c;
 
+	printf("%d %d\n", d->x, d->y);
 	ft_fill_init(d);
 	c.t3 = 0;
 	c.t = 0;
-	c.ix = floor(d->x / d->taille);
-	c.iy = floor(d->y / d->taille);
+	c.ix = (int)floor(d->x / d->taille);
+	c.iy = (int)floor(d->y / d->taille);
 	c.a = d->axe - d->angle / 2;
 	c.exp = 3;
 	while (c.t3 < d->l)

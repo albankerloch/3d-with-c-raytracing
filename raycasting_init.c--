@@ -45,12 +45,12 @@ void	ft_init_coord(t_data *d, t_coordinate *c)
 {
 	c->xa = d->x + c->side * c->u2 / tan(c->alpha * M_PI / 180);
 	c->ya = d->y + c->up * c->u2;
-	c->ixa = (int)floor(c->xa / d->taille);
-	c->iya = (int)floor(c->ya / d->taille) - c->delta;
+	c->ixa = floor(c->xa / d->taille);
+	c->iya = floor(c->ya / d->taille) - c->delta;
 	c->xb = d->x + c->side * c->u;
 	c->yb = d->y + c->up * c->u * tan(c->alpha * M_PI / 180);
-	c->ixb = (int)floor(c->xb / d->taille) - c->delta2;
-	c->iyb = (int)floor(c->yb / d->taille);
+	c->ixb = floor(c->xb / d->taille) - c->delta2;
+	c->iyb = floor(c->yb / d->taille);
 }
 
 void	ft_init(t_data *d, t_coordinate *c)
@@ -76,8 +76,8 @@ tan(c->alpha * M_PI / 180);
 tan(c->alpha * M_PI / 180);
 		c->yt = d->y + c->up * (c->u2 - c->up * d->taille / 2);
 	}
-	c->ixt = (int)floor(c->xt / d->taille);
-	c->iyt = (int)floor(c->yt / d->taille);
+	c->ixt = floor(c->xt / d->taille);
+	c->iyt = floor(c->yt / d->taille);
 }
 
 char	ft_check_down(t_coordinate *c)

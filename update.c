@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:02:08 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 18:35:37 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 19:52:25 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int		ft_update(t_data *d, int option)
 	ft_fill_init(d);
 	c.t3 = 0;
 	c.t = 0;
-	c.ix = floor(d->x / d->taille);
-	c.iy = floor(d->y / d->taille);
+	c.ix = (int)floor(d->x / d->taille);
+	c.iy = (int)floor(d->y / d->taille);
 	c.a = d->axe - d->angle / 2;
 	c.exp = 3;
 	while (c.t3 < d->l)
