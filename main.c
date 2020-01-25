@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:05:54 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 12:19:27 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 14:07:11 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		ft_init_images(t_data *d)
 	if (!(d->strt = (int**)malloc(6 * sizeof(int*))))
 		return (-1);
 	j = -1;
-	while (++j < 4 + d->check[4] + d->check[9])
+	while (++j < 4 + d->check[8] + d->check[9])
 	{
 		if (ft_create_images(d, j))
 			return (-1);

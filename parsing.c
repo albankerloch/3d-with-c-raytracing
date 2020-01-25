@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 18:44:56 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 12:21:44 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 14:17:10 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int		ft_verif_totalite(t_data *d)
 	int i;
 
 	i = 1;
-	while (i < 9)
+	while (i < 8)
 	{
-		if (d->check[i] != 1 && i != 4)
+		if (d->check[i] != 1)
 			return (-1);
 		i++;
 	}
@@ -35,7 +35,7 @@ int		ft_verif_chemin_texture(t_data *d)
 	int		fd;
 
 	i = 0;
-	while (i < 4 + d->check[4] + d->check[9])
+	while (i < 4 + d->check[8] + d->check[9])
 	{
 		if ((fd = open(d->texture[i], O_RDONLY)) < 0)
 			return (-1);
