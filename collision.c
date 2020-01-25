@@ -6,23 +6,21 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/18 16:32:08 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/19 15:57:37 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 11:37:04 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		ft_invert_key(t_coordinate *c)
+int     ft_bord(t_data *d, int x, int y)
 {
-	if (c->k == 13 || c->k == 126)
-		return (1);
-	if (c->k == 1 || c->k == 125)
-		return (13);
-	if (c->k == 0)
-		return (2);
-	if (c->k == 2)
+    if (y <= d->taille || y >= d->l * (d->taille - 1))
+        return (0);
+    if (x <= d->taille || x >= d->h * (d->taille - 1))
+        return (0);
+	if (d->tab[(int)floor(x / d->taille)][(int)floor(y / d->taille)] == 1)
 		return (0);
-	return (13);
+    return (1);
 }
 
 void	ft_collision_objet(t_data *d, int nxt, int y2, int x2)
@@ -38,18 +36,21 @@ void	ft_collision(t_data *d, t_coordinate *c, int y2, int x2)
 {
 	int nxt;
 
-	nxt = d->tab[(int)floor(x2 / d->taille)][(int)floor(y2 / d->taille)];
-	if (nxt == 2 || nxt == 3)
+	if (ft_bord(d, x2, y2))
 	{
-		if (d->y % d->taille > d->taille / 2 && d->y2 % d->taille <= \
+		nxt = d->tab[(int)floor(x2 / d->taille)][(int)floor(y2 / d->taille)];
+		if (nxt == 2 || nxt == 3 )
+		{
+			if (d->y % d->taille > d->taille / 2 && d->y2 % d->taille <= \
 d->taille / 2)
-			ft_collision_objet(d, nxt, y2, x2);
-		if (d->y % d->taille < d->taille / 2 && d->y2 % d->taille >= \
+				ft_collision_objet(d, nxt, y2, x2);
+			if (d->y % d->taille < d->taille / 2 && d->y2 % d->taille >= \
 d->taille / 2)
-			ft_collision_objet(d, nxt, y2, x2);
+				ft_collision_objet(d, nxt, y2, x2);
+		}
+		d->x = x2;
+		d->y = y2;
+		c->up = c->up;
+		ft_update(d, 1);
 	}
-	d->x = x2;
-	d->y = y2;
-	c->up = c->up;
-	ft_update(d, 1);
 }
