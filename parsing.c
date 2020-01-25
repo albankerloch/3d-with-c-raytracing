@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 18:44:56 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 15:03:39 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 15:43:46 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,20 +73,23 @@ int		ft_verif_tab(t_data *d)
 
 int		ft_add_nl(t_data *d, int fd)
 {
-	char *line;
+	char	*line;
+	int		ret;
 
 	line = NULL;
-	while ((get_next_line(fd, &line)))
+	while ((ret = get_next_line(fd, &line)))
 	{
+		if (ret == -1)
+			ft_exit_malloc(d, 1);
 		if (ft_param(line, d) == -1)
-		{
-			free(d->fut);
-			return (-1);
-		}
+			return (ft_exit_line(d, line));
 		if (line[0] == '1')
 		{
 			if (!(d->fut = ft_catbuff(line, d->fut, 0, ft_strlen(line))))
-				return (-1);
+			{
+				free(line);
+				ft_exit_malloc(d, 1);
+			}
 			d->l_tab = ft_strlen(line);
 			d->h_tab = d->h_tab + 1;
 		}
@@ -105,7 +108,7 @@ int		ft_parsing(t_data *d, char *name)
 		return (-1);
 	d->h_tab = 0;
 	if (!(d->fut = malloc(sizeof(char))))
-		return (-1);
+		ft_exit_malloc(d, 0);
 	d->fut[0] = '\0';
 	if (ft_add_nl(d, fd))
 		return (-1);

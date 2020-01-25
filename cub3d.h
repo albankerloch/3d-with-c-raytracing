@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:00:52 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 14:57:59 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 15:44:06 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,5 +137,6 @@ void			ft_collision(t_data *d, t_coordinate *c, int y2, int x2);
 void			ft_convert(int axe, t_coordinate *c);
 void			ft_init_t_coordinates(int axe, t_coordinate *c);
 void			ft_exit_malloc(t_data *d, int code);
+int				ft_exit_line(t_data *d, char *line);
 
 #endif
