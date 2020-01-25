@@ -6,11 +6,20 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 14:58:25 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/22 19:19:16 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 11:13:05 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int		ft_bord(t_data *d, int x, int y)
+{
+	if (y <= d->taille || y >= d->l * (d->taille - 1))
+		return (0);
+	if (x <= d->taille || x >= d->h * (d->taille - 1))
+		return (0);
+	return (0);
+}
 
 void	ft_rendu(t_coordinate *c, t_data *d)
 {

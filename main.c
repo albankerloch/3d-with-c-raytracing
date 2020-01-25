@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:05:54 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/19 11:49:24 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 10:31:19 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,6 @@ int		main(int ac, char **av)
 		mlx_hook(d.window, 2, 0, deal_key, (void*)&d);
 		mlx_loop(d.connexion);
 	}
+	write(2, "Erreur d'argument\n", 18);
 	return (0);
 }

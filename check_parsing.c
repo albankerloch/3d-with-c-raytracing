@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 23:34:52 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/24 20:25:22 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 11:13:37 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_verif_texture(char *line, t_data *d)
 	{
 		if (d->check[5] == 1)
 			return (-1);
-		if (!(d->texture[0] = ft_strdup(&line[3])))
+		if (!(d->texture[2] = ft_strdup(&line[3])))
 			return (-1);
 		d->check[5] = 1;
 		return (0);
@@ -27,7 +27,7 @@ int		ft_verif_texture(char *line, t_data *d)
 	{
 		if (d->check[8] == 1)
 			return (-1);
-		if (!(d->texture[3] = ft_strdup(&line[3])))
+		if (!(d->texture[1] = ft_strdup(&line[3])))
 			return (-1);
 		d->check[8] = 1;
 		return (0);
@@ -41,7 +41,7 @@ int		ft_verif_sprite(char *line, t_data *d)
 	{
 		if (d->check[6] == 1)
 			return (-1);
-		if (!(d->texture[1] = ft_strdup(&line[3])))
+		if (!(d->texture[3] = ft_strdup(&line[3])))
 			return (-1);
 		d->check[6] = 1;
 		return (0);
@@ -50,7 +50,7 @@ int		ft_verif_sprite(char *line, t_data *d)
 	{
 		if (d->check[7] == 1)
 			return (-1);
-		if (!(d->texture[2] = ft_strdup(&line[3])))
+		if (!(d->texture[0] = ft_strdup(&line[3])))
 			return (-1);
 		d->check[7] = 1;
 		return (0);
