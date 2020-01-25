@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 13:11:30 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 16:39:27 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:55:03 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,29 @@ int		ft_exit_line(char *line)
 	return (-1);
 }
 
+void ft_exit_minilib(t_data *d, int code)
+{
+	int j;
+
+	if (code >= 3)
+		mlx_destroy_window(d->connexion, d->window);
+	if (code >= 4)
+		mlx_destroy_image(d->connexion, d->fond);
+	if (code >= 6)
+		free(d->imaget);
+	if (code >= 7)
+		free(d->strt);
+	if (code >= 8)
+	{
+		j = -1;
+		while (++j < 4 + d->check[8] + d->check[9])
+		{
+			if (j <= code - 8)
+				mlx_destroy_image(d->connexion, d->imaget[j]);
+		}	
+	}
+}
+
 void	ft_exit_malloc(t_data *d, int code)
 {
 	ft_free_texture(d);
@@ -51,7 +74,7 @@ void	ft_exit_malloc(t_data *d, int code)
 	if (code > 1)
 	{
 		ft_free_tab(d, d->l_tab);
-//		ft_exit_minilib(d, code);
+		ft_exit_minilib(d, code);
 	}
 	write(2, "Erreur de malloc !\n", 19);
 	d = NULL;

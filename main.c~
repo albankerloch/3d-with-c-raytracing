@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:05:54 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 16:23:06 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:36:09 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,18 @@ int		ft_init_images(t_data *d)
 	int j;
 
 	if (!(d->connexion = mlx_init()))
-		return (-1);
+		return (2);
 	if (!(d->window = mlx_new_window(d->connexion, d->l, d->h, "Cubi3D")))
-		return (-1);
+		return (3);
 	if (!(d->fond = mlx_new_image(d->connexion, d->l, d->h)))
-		return (-1);
+		return (4);
 	if (!(d->strp = (int*)mlx_get_data_addr(d->fond, &d->bitpp, \
 &d->size, &d->endian)))
-		return (-1);
+		return (5);
 	if (!(d->imaget = (void**)malloc(6 * sizeof(void*))))
-		return (-1);
+		return (6);
 	if (!(d->strt = (int**)malloc(6 * sizeof(int*))))
-		return (-1);
+		return (7);
 	j = -1;
 	while (++j < 4 + d->check[8] + d->check[9])
 	{
@@ -96,8 +96,8 @@ int		main(int ac, char **av)
 			return (-1);
 		if ((ret = ft_parsing(&d, av[1])))
 			ft_exit_error(&d, ret);
-		if (ft_init_images(&d))
-			return (-1);
+		if ((ret = ft_init_images(&d)))
+			ft_exit_malloc(&d, ret);
 		if (ac == 3 && ft_strcmp(av[2], "--save") == 0)
 		{
 			ft_update(&d, 0);
