@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:04:17 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 12:22:45 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 12:22:38 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int		ft_exit(t_data *d)
 
 	j = -1;
 	mlx_destroy_image(d->connexion, d->fond);
-	while (++j < 4 + d->check[4] + d->check[9])
+	while (++j < 4 + + d->check[4] + d->check[9])
 	{
 		mlx_destroy_image(d->connexion, d->imaget[j]);
 		free(d->texture[j]);
