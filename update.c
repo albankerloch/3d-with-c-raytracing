@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:02:08 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/19 12:16:52 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 13:11:55 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,6 @@ int		ft_update(t_data *d, int option)
 	if (option == 1)
 		mlx_put_image_to_window(d->connexion, d->window, d->fond, 0, 0);
 	return (0);
-}
-
-void	ft_exit_error(t_data *d)
-{
-	free(d->texture);
-	write(2, "Erreur de map !\n", 16);
-	d = NULL;
-	exit(0);
 }
 
 void	ft_init_t_coordinates(int axe, t_coordinate *c)

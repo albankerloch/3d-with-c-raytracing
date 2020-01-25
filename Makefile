@@ -6,7 +6,7 @@
 #    By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/12 17:40:07 by akerloc-          #+#    #+#              #
-#    Updated: 2020/01/18 16:30:26 by akerloc-         ###   ########.fr        #
+#    Updated: 2020/01/25 13:12:12 by akerloc-         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -27,7 +27,8 @@ SRCS = main.c \
 	rendu.c \
 	export.c \
 	collision.c \
-	ft_strcmp.c
+	ft_strcmp.c \
+	exit_malloc.c
 OBJS = ${SRCS:.c=.o}
 NAME = cub3D
 HEADER = .
