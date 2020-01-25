@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 13:11:30 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 16:03:12 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:14:40 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	ft_exit_error(t_data *d, int code)
 	if (code == -2)
 	{
 		t = 0;
-		while (t < i)
+		while (t < d->l_tab - 1)
 		{
-			free(tab[t]);
+			free(d->tab[t]);
 			t++;
 		}
-		free(tab);
+		free(d->tab);
 	}
 	write(2, "Erreur de map !\n", 16);
 	d = NULL;

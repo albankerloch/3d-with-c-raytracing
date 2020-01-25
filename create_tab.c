@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 18:11:57 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 16:06:08 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:14:21 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ft_free_tab(t_data *d, int i)
 		t++;
 	}
 	free(d->tab);
-	ft_exit_malloc(d, 1);
 }
 
 void	ft_fill_axe(char *futur_tab, int t, t_data *d)
@@ -86,7 +85,10 @@ int		ft_create_tab(char *ft, t_data *d)
 	while (i < d->l_tab)
 	{
 		if (!(d->tab[i] = malloc(sizeof(int) * (d->h_tab + 1))))
+		{
 			ft_free_tab(d, i);
+			ft_exit_malloc(d, 1);
+		}
 		i++;
 	}
 	if (ft_tab(d->tab, ft, d))
