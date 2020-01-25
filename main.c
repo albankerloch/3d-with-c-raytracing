@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:05:54 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 14:07:11 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:00:54 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		ft_create_images(t_data *d, int j)
 {
 	if (!(d->imaget[j] = mlx_xpm_file_to_image(d->connexion, \
 d->texture[j], &(d->l2), &(d->h2))))
-		ft_exit_error(d);
+		ft_exit_error(d, -3);
 	if (!(d->strt[j] = (int*)mlx_get_data_addr(d->imaget[j], \
 &d->bitpp2, &d->size2, &d->endian2)))
 		return (-1);
@@ -87,14 +87,15 @@ int		ft_init_images(t_data *d)
 int		main(int ac, char **av)
 {
 	t_data	d;
+	int		ret;
 
 	ft_initialisation_d(&d);
 	if (ac == 2 || (ac == 3 && ft_strcmp(av[2], "--save") == 0))
 	{
 		if (!(d.texture = (char**)malloc(6 * sizeof(char*))))
 			return (-1);
-		if (ft_parsing(&d, av[1]) == -1)
-			ft_exit_error(&d);
+		if ((ret = ft_parsing(&d, av[1])))
+			ft_exit_error(&d, ret);
 		if (ft_init_images(&d))
 			return (-1);
 		if (ac == 3 && ft_strcmp(av[2], "--save") == 0)

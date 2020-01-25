@@ -6,23 +6,23 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 18:11:57 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 15:53:06 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:06:08 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_free_tab(int **tab, t_data *d, int i)
+void	ft_free_tab(t_data *d, int i)
 {
 	int t;
 
 	t = 0;
 	while (t < i)
 	{
-		free(tab[t]);
+		free(d->tab[t]);
 		t++;
 	}
-	free(tab);
+	free(d->tab);
 	ft_exit_malloc(d, 1);
 }
 
@@ -41,7 +41,7 @@ void	ft_fill_axe(char *futur_tab, int t, t_data *d)
 void	ft_maj_t_coordinates(int **tab, int i, int j, t_data *d)
 {
 	if (d->x != 0 || d->y != 0)
-		ft_exit_error(d);
+		ft_exit_error(d, -2);
 	d->x = i * d->taille + d->taille / 2;
 	d->y = j * d->taille + d->taille / 2 - 10;
 	tab[i][j] = 0;
@@ -76,21 +76,20 @@ int		ft_tab(int **tab, char *ft, t_data *d)
 	return (0);
 }
 
-int		**ft_create_tab(char *ft, t_data *d)
+int		ft_create_tab(char *ft, t_data *d)
 {
-	int **tab;
 	int i;
 
-	if (!(tab = malloc(d->l_tab * sizeof(int*))))
+	if (!(d->tab = malloc(d->l_tab * sizeof(int*))))
 		ft_exit_malloc(d, 1);
 	i = 0;
 	while (i < d->l_tab)
 	{
-		if (!(tab[i] = malloc(sizeof(int) * (d->h_tab + 1))))
-			ft_free_tab(tab, d, i);
+		if (!(d->tab[i] = malloc(sizeof(int) * (d->h_tab + 1))))
+			ft_free_tab(d, i);
 		i++;
 	}
-	if (ft_tab(tab, ft, d))
-		return (NULL);
-	return (tab);
+	if (ft_tab(d->tab, ft, d))
+		return (-1);
+	return (0);
 }
