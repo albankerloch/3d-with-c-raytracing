@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 13:11:30 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 16:55:03 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 17:49:03 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	ft_free_texture(t_data *d)
 	int i;
 
 	i = 0;
-	while (i <  10)
+	while (i < 10)
 	{
 		if (d->check[i] == 1)
 			free(d->texture[i - 4]);
-		 i++;
+		i++;
 	}
 	free(d->texture);
 }
@@ -43,7 +43,7 @@ int		ft_exit_line(char *line)
 	return (-1);
 }
 
-void ft_exit_minilib(t_data *d, int code)
+void	ft_exit_minilib(t_data *d, int code)
 {
 	int j;
 
@@ -62,7 +62,7 @@ void ft_exit_minilib(t_data *d, int code)
 		{
 			if (j <= code - 8)
 				mlx_destroy_image(d->connexion, d->imaget[j]);
-		}	
+		}
 	}
 }
 
@@ -80,4 +80,3 @@ void	ft_exit_malloc(t_data *d, int code)
 	d = NULL;
 	exit(0);
 }
-
