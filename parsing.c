@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 18:44:56 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 14:58:49 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 15:03:39 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,33 +71,29 @@ int		ft_verif_tab(t_data *d)
 	return (ft_verif_chemin_texture(d));
 }
 
-char	*ft_add_nl(t_data *d, int fd)
+int		ft_add_nl(t_data *d, int fd)
 {
 	char *line;
-	char *futur_tab;
 
-	if (!(futur_tab = malloc(sizeof(char))))
-		return (NULL);
-	futur_tab[0] = '\0';
 	line = NULL;
 	while ((get_next_line(fd, &line)))
 	{
 		if (ft_param(line, d) == -1)
 		{
-			free(futur_tab);
-			return (NULL);
+			free(d->fut);
+			return (-1);
 		}
 		if (line[0] == '1')
 		{
-			if (!(futur_tab = ft_catbuff(line, futur_tab, 0, ft_strlen(line))))
-				return (NULL);
+			if (!(d->fut = ft_catbuff(line, d->fut, 0, ft_strlen(line))))
+				return (-1);
 			d->l_tab = ft_strlen(line);
 			d->h_tab = d->h_tab + 1;
 		}
 		free(line);
 	}
 	free(line);
-	return (futur_tab);
+	return (0);
 }
 
 int		ft_parsing(t_data *d, char *name)
@@ -108,7 +104,10 @@ int		ft_parsing(t_data *d, char *name)
 	if (fd < 1 || ft_strcmp(&name[ft_strlen(name) - 4], ".cub") != 0)
 		return (-1);
 	d->h_tab = 0;
-	if (!(d->fut = ft_add_nl(d, fd)))
+	if (!(d->fut = malloc(sizeof(char))))
+		return (-1);
+	d->fut[0] = '\0';
+	if (ft_add_nl(d, fd))
 		return (-1);
 	close(fd);
 	if (!(d->tab = ft_create_tab(d->fut, d)))
