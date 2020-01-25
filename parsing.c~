@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 18:44:56 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 15:43:46 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:04:48 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,10 +113,10 @@ int		ft_parsing(t_data *d, char *name)
 	if (ft_add_nl(d, fd))
 		return (-1);
 	close(fd);
-	if (!(d->tab = ft_create_tab(d->fut, d)))
-		return (-1);
+	if (ft_create_tab(d->fut, d))
+		return (-2);
 	free(d->fut);
 	if (ft_verif_tab(d) == -1)
-		return (-1);
+		return (-3);
 	return (0);
 }
