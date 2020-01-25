@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 23:34:52 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 14:08:41 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 17:35:35 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_verif_texture(char *line, t_data *d)
 			return (-1);
 		if (!(d->texture[2] = ft_strdup(&line[3])))
 			return (-1);
-		d->check[5] = 1;
+		d->check[6] = 1;
 		return (0);
 	}
 	else if (line[0] == 'W' && line[1] == 'E')
@@ -29,7 +29,7 @@ int		ft_verif_texture(char *line, t_data *d)
 			return (-1);
 		if (!(d->texture[1] = ft_strdup(&line[3])))
 			return (-1);
-		d->check[8] = 1;
+		d->check[5] = 1;
 		return (0);
 	}
 	return (1);
@@ -43,7 +43,7 @@ int		ft_verif_sprite(char *line, t_data *d)
 			return (-1);
 		if (!(d->texture[3] = ft_strdup(&line[3])))
 			return (-1);
-		d->check[6] = 1;
+		d->check[7] = 1;
 		return (0);
 	}
 	else if (line[0] == 'S' && line[1] == 'O')
@@ -52,7 +52,7 @@ int		ft_verif_sprite(char *line, t_data *d)
 			return (-1);
 		if (!(d->texture[0] = ft_strdup(&line[3])))
 			return (-1);
-		d->check[7] = 1;
+		d->check[4] = 1;
 		return (0);
 	}
 	return (1);
@@ -76,7 +76,7 @@ int		ft_verif_floor(char *line, t_data *d)
 			return (-1);
 		if (!(d->texture[4] = ft_strdup(&line[2])))
 			return (-1);
-		d->check[4] = 1;
+		d->check[8] = 1;
 		return (0);
 	}
 	return (1);
@@ -91,12 +91,14 @@ int		ft_verif_res(char *line, t_data *d)
 		line++;
 		d->l = ft_atoi(line) < 2560 ? ft_atoi(line) : 2560;
 		d->l = d->l < 175 ? 175 : d->l;
-		line++;
+		while (line[0] == ' ')
+			line++;
 		while (line[0] > 47 && line[0] < 58)
 			line++;
 		d->h = ft_atoi(line) < 1440 ? ft_atoi(line) : 1440;
 		d->h = d->h < 175 ? 175 : d->h;
 		d->check[1] = 1;
+		printf("%d %d\n", d->l, d->h);
 		return (0);
 	}
 	else if (line[0] == 'F')

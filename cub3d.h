@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:00:52 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 16:39:07 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 17:43:25 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,5 +139,6 @@ void			ft_init_t_coordinates(int axe, t_coordinate *c);
 void			ft_exit_malloc(t_data *d, int code);
 int				ft_exit_line(char *line);
 void			ft_free_tab(t_data *d, int i);
+int				ft_borne_atoi(int n, int code);
 
 #endif

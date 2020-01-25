@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 23:34:52 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 14:16:47 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 17:44:14 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,12 @@ int		ft_verif_res(char *line, t_data *d)
 		if (d->check[1] == 1)
 			return (-1);
 		line++;
-		d->l = ft_atoi(line) < 2560 ? ft_atoi(line) : 2560;
-		d->l = d->l < 175 ? 175 : d->l;
-		line++;
+		d->l = ft_borne_atoi(ft_atoi(line), 1);
+		while (line[0] == ' ')
+			line++;
 		while (line[0] > 47 && line[0] < 58)
 			line++;
-		d->h = ft_atoi(line) < 1440 ? ft_atoi(line) : 1440;
-		d->h = d->h < 175 ? 175 : d->h;
+		d->h = ft_borne_atoi(ft_atoi(line), 2);
 		d->check[1] = 1;
 		return (0);
 	}

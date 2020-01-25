@@ -6,7 +6,7 @@
 /*   By: akerloc- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 17:31:51 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 17:43:04 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/12 16:50:10 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,4 @@ int			ft_atoi(const char *str)
 		i++;
 	}
 	return (res * sign);
-}
-
-int			ft_borne_atoi(int n, int code)
-{
-	int a;
-
-	a = n;
-	if (n > 2560 && code == 1)
-		a = 2560;
-	if (n > 1440  && code == 2)
-		a = 1440;
-	if (n < 175)
-		a = 175;
-	return (a);
 }

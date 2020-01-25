@@ -1,9 +1,9 @@
-R        1500    1500
+R 1200  1500
 NO    ./texture/brick_wall.XPM
 WE   ./texture/weave.XPM
 EA   ./texture/triangle.XPM
 SO  ./texture/stone_wall.XPM
-S  ./texture/alban3.XPM
+
 
 C     244,   255,    80
 F     80,   240,       240
