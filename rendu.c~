@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 14:58:25 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 17:21:40 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 11:19:23 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@ void	ft_rendu(t_coordinate *c, t_data *d)
 	ratio = (float)d->h2 / c->h3;
 	k = 0;
 	i = ((d->h - c->h3) / 2) * d->l + c->t3;
-	if (i < 0)
-	{
-		k = k + (int)floor(-i / d->l) * ratio;
-		i = i + (int)floor(-i / d->l) * d->l;
-	}
 	j = c->t;
 	while (i < (((d->h - c->h3) / 2 + c->h3) * d->l + c->t3) && i < d->h * d->l)
 	{
@@ -48,11 +43,6 @@ void	ft_rendu_texture(t_coordinate *c, t_data *d)
 	ratio = (float)d->h2 / c->h3_2;
 	k = 0;
 	i = ((d->h - c->h3_2) / 2) * d->l + c->t3;
-	if (i < 0)
-	{
-		k = k + (int)floor(-i / d->l) * ratio;
-		i = i + (int)floor(-i / d->l) * d->l;
-	}
 	j = c->t_2;
 	while (i < (((d->h - c->h3_2) / 2 + c->h3_2) * d->l + c->t3\
 ) && i < d->h * d->l)
