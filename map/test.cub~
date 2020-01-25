@@ -1,4 +1,4 @@
-R 400 2000
+R 200000 200000
 NO    ./texture/brick_wall.XPM
 WE   ./texture/weave.XPM
 EA   ./texture/triangle.XPM

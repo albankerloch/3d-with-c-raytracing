@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:02:08 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 18:23:22 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 18:31:35 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	ft_fill_life(t_data *d)
 	int i;
 
 	i = (int)floor(d->l / 32);
-	printf("%d %d\n", d->l, d->h);
-	printf("%d %d %d\n", (int)floor(d->h / 64), (int)floor(d->h / 16), d->life);
 	while (i < d->l / 16)
 	{
 		j = (int)floor(d->h / 64) + d->l * i;
@@ -28,7 +26,7 @@ void	ft_fill_life(t_data *d)
 			d->strp[j] = 0;
 			j++;
 		}
-		if (i > (int)floor(d->l / 32) + 2  && i < d->l / 16 - 2)
+		if (i > (int)floor(d->l / 32) + 2 && i < d->l / 16 - 2)
 		{
 			j = 2 + (int)floor(d->h / 64) + d->l * i;
 			while (j < d->l * i + (int)floor(d->h / 16) - 2)
