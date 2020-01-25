@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 18:44:56 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 16:04:48 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 16:38:37 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		ft_add_nl(t_data *d, int fd)
 		if (ret == -1)
 			ft_exit_malloc(d, 1);
 		if (ft_param(line, d) == -1)
-			return (ft_exit_line(d, line));
+			return (ft_exit_line(line));
 		if (line[0] == '1')
 		{
 			if (!(d->fut = ft_catbuff(line, d->fut, 0, ft_strlen(line))))

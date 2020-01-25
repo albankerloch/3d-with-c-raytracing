@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:05:54 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 18:21:21 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 18:23:07 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_initialisation_d(t_data *d)
 {
 	int i;
 
-	d->life = 4;
+	d->life = 3;
 	d->taille = 512;
 	d->angle = 60;
 	d->h_tab = 0;

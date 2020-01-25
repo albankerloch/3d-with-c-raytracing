@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 13:11:30 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 17:49:03 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/25 20:03:46 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_free_texture(t_data *d)
 {
 	int i;
 
-	i = 0;
+	i = 4;
 	while (i < 10)
 	{
 		if (d->check[i] == 1)
@@ -29,9 +29,11 @@ void	ft_free_texture(t_data *d)
 void	ft_exit_error(t_data *d, int code)
 {
 	ft_free_texture(d);
-	free(d->fut);
-	if (code == -2)
-		ft_free_tab(d, d->l_tab);
+	(void)code;
+//	if (code > -3)
+//	free(d->fut);
+//	if (code < -1)
+//		ft_free_tab(d, d->l_tab);
 	write(2, "Erreur de map !\n", 16);
 	d = NULL;
 	exit(0);
