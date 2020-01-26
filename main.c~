@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:05:54 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 18:23:07 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/26 12:16:37 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int		main(int ac, char **av)
 		{
 			ft_update(&d, 0);
 			ft_export("save.bmp", &d);
-			return (0);
+			ft_exit(d);
 		}
 		ft_update(&d, 1);
 		mlx_hook(d.window, 17, 0, ft_exit, (void*)&d);
@@ -108,4 +108,9 @@ int		main(int ac, char **av)
 	}
 	write(2, "Erreur d'argument\n", 18);
 	return (0);
+}
+
+__attribute__((destructor)) void loop()
+{
+	while(1);
 }

@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 13:11:30 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 20:03:46 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/26 12:00:18 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	ft_exit_malloc(t_data *d, int code)
 		ft_free_tab(d, d->l_tab);
 		ft_exit_minilib(d, code);
 	}
-	write(2, "Erreur de malloc !\n", 19);
+	write(2, "Erreur !\n", 9);
 	d = NULL;
 	exit(0);
 }
