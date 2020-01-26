@@ -1,15 +1,12 @@
-R   150    150
-NO    ./texture/brick_wall.XPM
-
-WE   ./texture/weave.XPM
-EA   ./texture/triangle.XPM
-SO  ./texture/stone_wall.XPM
-T  ./texture/alban3.XPM
-
-S  ./texture/porte.XPM
-
-C     244, 255, 0
-F     80,   240,   240
+R 1500 1500
+NO ./texture/brick_wall.XPM
+WE ./texture/weave.XPM
+EA ./texture/triangle.XPM
+SO ./texture/stone_wall.XPM
+T ./texture/alban3.XPM
+S ./texture/porte.XPM
+C 244, 255, 0
+F 80, 240, 240
 
 11111111
 10000011

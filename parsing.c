@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 18:44:56 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 19:56:51 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/26 13:32:21 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int		ft_add_nl(t_data *d, int fd)
 	int		ret;
 
 	line = NULL;
-	while ((ret = get_next_line(fd, &line)))
+	while ((ret = get_next_line(fd, &line)) && ret != 0)
 	{
 		if (ret == -1)
 			ft_exit_malloc(d, 1);
@@ -117,6 +117,6 @@ int		ft_parsing(t_data *d, char *name)
 		return (-2);
 	free(d->fut);
 	if (ft_verif_tab(d) == -1)
-		return (-2);
+		return (-3);
 	return (0);
 }

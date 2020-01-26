@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 18:11:57 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/25 19:58:09 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/26 13:31:37 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,7 @@ int		ft_tab(int **tab, char *ft, t_data *d)
 '2' && d->check[8] == 1) || (ft[t] == '3' && d->check[9] == 1))
 				tab[i][j] = ft[t] - 48;
 			else
-			{
-				printf("   P   ");
 				return (-1);
-			}
 			t++;
 		}
 	}
@@ -82,8 +79,13 @@ int		ft_create_tab(char *ft, t_data *d)
 {
 	int i;
 
+	printf("I\n");	
 	if (!(d->tab = malloc(d->l_tab * sizeof(int*))))
+	{
+		
 		ft_exit_malloc(d, 1);
+	}
+	printf("L\n");
 	i = 0;
 	while (i < d->l_tab)
 	{

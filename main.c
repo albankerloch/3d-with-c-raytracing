@@ -6,7 +6,7 @@
 /*   By: akerloc- <akerloc-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 15:05:54 by akerloc-          #+#    #+#             */
-/*   Updated: 2020/01/26 12:16:53 by akerloc-         ###   ########.fr       */
+/*   Updated: 2020/01/26 13:33:21 by akerloc-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_initialisation_d(t_data *d)
 	}
 	d->x = 0;
 	d->y = 0;
+	d->l_tab = 0;
 }
 
 void	ft_fill_init(t_data *d)
@@ -108,9 +109,4 @@ int		main(int ac, char **av)
 	}
 	write(2, "Erreur d'argument\n", 18);
 	return (0);
-}
-
-__attribute__((destructor)) void loop()
-{
-	while(1);
 }
